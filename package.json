@@ -1,6 +1,9 @@
 {
-  "name": "image-compressor",
+  "name": "functions",
   "version": "0.0.1",
+  "scripts": {
+    "prebuild": "cd functions && npm i"
+  },
   "dependencies": {
     "sharp": "^0.24.0",
     "aws-sdk": "^2.616.0",
