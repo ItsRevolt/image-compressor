@@ -2,6 +2,11 @@
   "name": "functions",
   "version": "0.0.1",
   "scripts": {
-    "prebuild": "cd functions && npm i"
+    "prebuild": "npm i"
+  },
+  "dependencies": {
+    "sharp": "^0.24.0",
+    "aws-sdk": "^2.616.0",
+    "nanoid": "^2.1.11"
   }
 }
