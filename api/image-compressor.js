@@ -7,7 +7,6 @@ var s3Bucket = new AWS.S3({
     Bucket: "tely-bucket"
   }
 });
-
 var nanoid = require("nanoid");
 
 async function s3Upload(input, key) {
