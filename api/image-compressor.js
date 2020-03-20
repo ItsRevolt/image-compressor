@@ -23,8 +23,8 @@ async function s3Upload(input, key) {
 }
 
 async function compress(imgBuffer) {
-  var image = Buffer.from(imgBuffer, "base64");
-  const data = await sharp(image)
+  //var image = Buffer.from(imgBuffer, "base64");
+  const data = await sharp(imgBuffer)
     .resize(140, 140)
     .jpeg()
     .toBuffer();
