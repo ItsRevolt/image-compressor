@@ -35,9 +35,7 @@ module.exports = async (req, res) => {
   const { body } = req;
   console.log(body);
   var compressed = await compress(
-    !body.file.data
-      ? body.file.replace(/^data:image\/\w+;base64,/, "")
-      : body.file.data
+    body.file.replace(/^data:image\/\w+;base64,/, "")
   );
   var upload = await s3Upload(compressed, body.key + "-" + nanoid());
   return res.status(200).send(upload);
