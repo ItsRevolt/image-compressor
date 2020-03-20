@@ -8,7 +8,6 @@ var s3Bucket = new AWS.S3({
   }
 });
 var nanoid = require("nanoid");
-import { NowRequest, NowResponse } from "@now/node";
 
 async function s3Upload(input, key) {
   var params = {
@@ -32,10 +31,10 @@ async function compress(imgBuffer) {
   return data;
 }
 
-export default async (req, res) => {
+module.exports = async (req, res) => {
   var compressed = await compress(
     req.body.file.replace(/^data:image\/\w+;base64,/, "")
   );
   var upload = await s3Upload(compressed, req.body.key + "-" + nanoid());
-  return res.json(upload);
+  return res.status(200).send(upload);
 };
