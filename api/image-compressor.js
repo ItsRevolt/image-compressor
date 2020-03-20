@@ -29,6 +29,7 @@ async function compress(imgBuffer) {
     .resize(140, 140)
     .jpeg()
     .toBuffer();
+  console.log(data);
   return data;
 }
 
