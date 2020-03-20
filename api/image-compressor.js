@@ -32,9 +32,10 @@ async function compress(imgBuffer) {
 }
 
 module.exports = async (req, res) => {
+  const { body } = req;
   var compressed = await compress(
-    req.body.file.replace(/^data:image\/\w+;base64,/, "")
+    body.file.replace(/^data:image\/\w+;base64,/, "")
   );
-  var upload = await s3Upload(compressed, req.body.key + "-" + nanoid());
+  var upload = await s3Upload(compressed, body.key + "-" + nanoid());
   return res.status(200).send(upload);
 };
