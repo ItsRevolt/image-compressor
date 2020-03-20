@@ -33,6 +33,7 @@ async function compress(imgBuffer) {
 
 module.exports = async (req, res) => {
   const { body } = req;
+  console.log(body);
   var compressed = await compress(
     body.file.replace(/^data:image\/\w+;base64,/, "")
   );
